@@ -12,3 +12,7 @@ def find_task(task_id):
 @app.route('/tasks', methods=['GET'])
 def get_tasks():
     return jsonify(tasks), 200
+@app.route('/tasks', methods=['POST'])
+def create_task():
+    if not request.json or 'title' not in request.json:
+        abort(400)
