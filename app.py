@@ -62,3 +62,17 @@ def delete_task(task_id):
 
     tasks.remove(task)
     return '', 204  
+@app.errorhandler(400)
+def bad_request(error):
+    return jsonify({'error': 'Bad request'}), 400
+
+@app.errorhandler(404)
+def not_found(error):
+    return jsonify({'error': 'Not found'}), 404
+
+@app.errorhandler(500)
+def server_error(error):
+    return jsonify({'error': 'Server error'}), 500
+
+if __name__ == '__main__':
+    app.run(debug=True)
