@@ -16,3 +16,10 @@ def get_tasks():
 def create_task():
     if not request.json or 'title' not in request.json:
         abort(400)
+        task = {
+        'id': str(uuid.uuid4()), 
+        'title': request.json['title'],
+        'completed': False
+    }
+    tasks.append(task)
+    return jsonify(task), 201 
