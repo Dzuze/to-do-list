@@ -23,3 +23,10 @@ def create_task():
     }
     tasks.append(task)
     return jsonify(task), 201 
+@app.route('/tasks/<task_id>', methods=['GET'])
+def get_task(task_id):
+    task = find_task(task_id)
+    if task:
+        return jsonify(task), 200
+    else:
+        abort(404) 
