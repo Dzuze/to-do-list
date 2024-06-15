@@ -53,3 +53,12 @@ def update_task(task_id):
     task['title'] = request.json.get('title', task['title'])
     task['completed'] = request.json.get('completed', task['completed'])
     return jsonify(task), 200  
+
+@app.route('/tasks/<task_id>', methods=['DELETE'])
+def delete_task(task_id):
+    task = find_task(task_id)
+    if not task:
+        abort(404)  
+
+    tasks.remove(task)
+    return '', 204  
