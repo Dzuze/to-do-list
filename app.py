@@ -9,3 +9,6 @@ def find_task(task_id):
         if task['id'] == task_id:
             return task
     return None
+@app.route('/tasks', methods=['GET'])
+def get_tasks():
+    return jsonify(tasks), 200
