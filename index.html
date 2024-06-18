@@ -1,21 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Manager</title>
     <script src="script.js" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        h1 {
+            color: #333;
+        }
+        
+        form {
+            margin-bottom: 20px;
+        }
+        
+        input[type="text"] {
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        li button {
+            background-color: #dc3545;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            margin-left: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
     <h1>Task Manager</h1>
-
-
     <form id="taskForm">
         <input type="text" id="taskTitle" placeholder="Enter task title" required>
         <button type="submit">Add Task</button>
     </form>
-
-
     <ul id="tasks"></ul>
 </body>
 
