@@ -33,3 +33,31 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     })
                     .catch(error => console.error('Error:', error));
             }
+            viewTasks();
+
+
+            taskForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const title = taskTitle.value.trim();
+                if (title) {
+                    fetch('/tasks', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ title: title })
+                        })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            console.log("Task added:", data);
+                            taskTitle.value = '';
+                            viewTasks();
+                        })
+                        .catch(error => console.error('Error:', error));
+                }
+            });
