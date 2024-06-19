@@ -1,7 +1,6 @@
 from flask import Flask, jsonify, request, abort, send_from_directory
 from flask_cors import CORS
 import uuid
-import os
 
 app = Flask(__name__, static_url_path='')
 CORS(app)
